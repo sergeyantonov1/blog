@@ -1,2 +1,19 @@
-- articles.each do |article|
-  = article.title
+header.masthead.index
+  .overlay
+  .container
+    .row
+      .col-lg-8.col-md-10.mx-auto
+        .site-heading
+          h1
+            | Clean Blog
+          span.subheading
+            | A Blog Theme by Start Bootstrap
+.container
+  .row
+    .col-lg-8.col-md-10.mx-auto
+      - articles.each do |article|
+        = render "article", article: article
+      .clearfix
+        a.btn.btn-primary.float-right[href="#"]
+          | Older Posts →
+hr

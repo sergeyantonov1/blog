@@ -4,11 +4,13 @@
 # It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 # the compiled file.
 #
-#= require jquery2
-#= require jquery-ujs
-#= require foundation
+#= require jquery3
+#= require jquery_ujs
+#= require popper
+#= require bootstrap
 #= require current_user
+#= require clean-blog
+#= require contact_me
+#= require jqBootstrapValidation
 #= require_tree ../templates
 #= require_tree .
-
-$(document).foundation()

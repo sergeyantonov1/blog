@@ -1,2 +1,15 @@
-= article.title
-= article.text
+header.masthead.show
+  .overlay
+  .container
+    .row
+      .col-lg-8.col-md-10.mx-auto
+        .site-heading
+          h1 = article.title
+          span.subheading = article.title
+
+article
+  .container
+    .row
+      .col-lg-8.col-md-10.mx-auto
+        = article.text
+hr

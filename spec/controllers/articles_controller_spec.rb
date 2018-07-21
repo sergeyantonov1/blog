@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe ArticlesController do
   let!(:user) { create :user }
@@ -17,9 +17,8 @@ describe ArticlesController do
     end
 
     it "saves new article" do
-      expect {
-        post :create, params: article_params
-      }.to change(Article, :count).by 1
+      expect { post :create, params: article_params }
+        .to change(Article, :count).by 1
 
       expect(article_from_db.title).to eq "New article"
       expect(article_from_db.text).to eq "Article's text"
@@ -55,9 +54,8 @@ describe ArticlesController do
     let(:params) { { id: article.id } }
 
     it "deletes article" do
-      expect {
-        delete :destroy, params: params
-      }.to change(Article, :count).by(-1)
+      expect { delete :destroy, params: params }
+        .to change(Article, :count).by(-1)
     end
   end
 end

@@ -1,7 +1,15 @@
-.title-bar data-hide-for="medium" data-responsive-toggle="navigation_menu"
-  button.menu-icon data-toggle="" type="button"
-  title-bar-title Menu
+nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
+  .container
+    = link_to "ITBlog", root_path, class: "navbar-brand"
 
-nav.top-bar#navigation_menu
-  = render "navigation_main"
-  = render "navigation_user"
+    button.navbar-toggler.navbar-toggler-right type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
+      |  Menu
+      i.fa.fa-bars
+    #navbarResponsive.collapse.navbar-collapse
+      ul.navbar-nav.ml-auto
+        li.nav-item
+          = link_to "Home", root_path, class: "nav-link"
+        li.nav-item
+          = link_to "About", "#", class: "nav-link"
+        li.nav-item
+          = link_to "My posts", "#", class: "nav-link"

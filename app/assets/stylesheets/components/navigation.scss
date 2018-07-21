@@ -1,29 +1,31 @@
-.top-bar {
-  @include breakpoint(small only) {
-    &-menu {
-      flex-direction: column;
+.main-nav {
+  height: 60px;
+  margin: 0;
 
-      align-items: flex-start;
+  ul.items {
+    text-align: center;
+    list-style-type: none;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    .btn-nav {
+      height: 100%;
+      border-radius: 0px;
     }
-  }
 
-  @include breakpoint(medium) {
-    &-right {
-      justify-content: flex-end;
+    .btn-nav:focus {
+      outline: 0;
+      box-shadow: none;
     }
-  }
-}
 
-.no-js {
-  @include breakpoint(small only) {
-    .top-bar {
-      display: none;
-    }
-  }
+    li.item {
+      height: 100%;
+      // padding: 0px 30px;
 
-  @include breakpoint(medium) {
-    .title-bar {
-      display: none;
+      .link_name.active {
+        border-bottom: 3px solid;
+      }
     }
   }
 }

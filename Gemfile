@@ -7,18 +7,14 @@ gem "rails", "5.1.2"
 
 # assets
 gem "autoprefixer-rails"
+gem "bootstrap", "~> 4.1.1"
 gem "coffee-rails"
-gem "foundation-icons-sass-rails"
-gem "foundation-rails"
+gem "font-awesome-rails"
+gem "jquery-rails"
 gem "mini_racer"
 gem "premailer-rails"
 gem "sass-rails", "~> 5.0.0", ">= 5.0.6"
 gem "uglifier", ">= 2.7.2"
-
-source "https://rails-assets.org" do
-  gem "rails-assets-jquery-ujs"
-  gem "rails-assets-jquery2"
-end
 
 # views
 gem "active_link_to"

@@ -21,7 +21,12 @@ nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
         - if user_signed_in?
           li.nav-item
             .dropdown.show
-              a#dropdownMenuLink.btn.btn-secondary.dropdown-toggle href="https://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+              a#dropdownMenuLink.btn.btn-secondary.dropdown-toggle {
+                href="https://example.com"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              }
                 = current_user.full_name
               .dropdown-menu aria-labelledby="dropdownMenuLink"
                 a.dropdown-item[href="#"]
@@ -30,7 +35,7 @@ nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
                   | Another action
                 a.dropdown-item[href="#"]
                   | Something else here
-                div.dropdown-divider
+                .dropdown-divider
                 = link_to "Sign out", destroy_user_session_path, method: :get, class: "dropdown-item"
         - else
           li.nav-item

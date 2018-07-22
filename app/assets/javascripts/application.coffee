@@ -13,4 +13,5 @@
 #= require contact_me
 #= require jqBootstrapValidation
 #= require_tree ../templates
+#= require ckeditor/init
 #= require_tree .

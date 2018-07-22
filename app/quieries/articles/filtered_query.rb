@@ -9,7 +9,7 @@ module Articles
     private
 
     def author_articles
-      return unless params[:author]
+      return relation unless params[:author]
 
       @relation = relation.where(user_id: params[:author])
     end

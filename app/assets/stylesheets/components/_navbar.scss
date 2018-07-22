@@ -98,3 +98,45 @@
     }
   }
 }
+.dropdown {
+  a#dropdownMenuLink {
+    background: none;
+    border: none;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+  }
+
+  a#dropdownMenuLink:focus {
+    box-shadow: none;
+    color: #fff;
+  }
+
+  .dropdown-menu:focus {
+    box-shadow: none;
+  }
+
+  .dropdown-menu {
+    background-color: #000;
+    border: none;
+    border-radius: 0;
+    opacity: 0.5;
+    a {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    a:focus, a:active, a:hover {
+      background: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}

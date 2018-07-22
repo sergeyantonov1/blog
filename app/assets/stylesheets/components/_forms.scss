@@ -1,0 +1,35 @@
+.sign_form {
+  @include sans-serif-font;
+  width: 50%;
+  margin: 100px auto;
+  padding: 20px 50px;
+  background-color: rgba(255, 255, 255, .8);
+
+  .form-header {
+    color: #0085A1;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .form-inputs {
+    font-size: 16px;
+    .checkbox label {
+      margin-left: 10px;
+    }
+  }
+
+  input[type="submit"] {
+    width: 100%;
+  }
+
+  .sign-up-button input {
+    margin-top: 10px;
+  }
+
+  .error {
+    color: red;
+  }
+}

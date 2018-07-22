@@ -2,7 +2,14 @@ nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
   .container
     = link_to "ITBlog", root_path, class: "navbar-brand"
 
-    button.navbar-toggler.navbar-toggler-right type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
+    button.navbar-toggler.navbar-toggler-right {
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarResponsive"
+      aria-controls="navbarResponsive"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    }
       |  Menu
       i.fa.fa-bars
     #navbarResponsive.collapse.navbar-collapse
@@ -11,5 +18,22 @@ nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
           = link_to "Home", root_path, class: "nav-link"
         li.nav-item
           = link_to "About", "#", class: "nav-link"
-        li.nav-item
-          = link_to "My posts", "#", class: "nav-link"
+        - if user_signed_in?
+          li.nav-item
+            .dropdown.show
+              a#dropdownMenuLink.btn.btn-secondary.dropdown-toggle href="https://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                = current_user.full_name
+              .dropdown-menu aria-labelledby="dropdownMenuLink"
+                a.dropdown-item[href="#"]
+                  | Action
+                a.dropdown-item[href="#"]
+                  | Another action
+                a.dropdown-item[href="#"]
+                  | Something else here
+                div.dropdown-divider
+                = link_to "Sign out", destroy_user_session_path, method: :get, class: "dropdown-item"
+        - else
+          li.nav-item
+            = link_to "Sign in", new_user_session_path, class: "nav-link"
+          li.nav-item
+            = link_to "Sign up", new_user_registration_path, class: "nav-link"

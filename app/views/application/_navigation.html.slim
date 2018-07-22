@@ -29,12 +29,8 @@ nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
               }
                 = current_user.full_name
               .dropdown-menu aria-labelledby="dropdownMenuLink"
-                a.dropdown-item[href="#"]
-                  | Action
-                a.dropdown-item[href="#"]
-                  | Another action
-                a.dropdown-item[href="#"]
-                  | Something else here
+                = link_to "Profile", edit_user_registration_path, class: "dropdown-item"
+                = link_to "My publications", articles_path(author: current_user.id), class: "dropdown-item"
                 .dropdown-divider
                 = link_to "Sign out", destroy_user_session_path, method: :get, class: "dropdown-item"
         - else

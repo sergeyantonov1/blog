@@ -78,7 +78,7 @@
       }
       .navbar-nav {
         > li.nav-item {
-          > a {
+          > a, a#dropdownMenuLink {
             color: $gray-900;
             &:focus,
             &:hover {
@@ -111,7 +111,6 @@
 
   a#dropdownMenuLink:focus {
     box-shadow: none;
-    color: #fff;
   }
 
   .dropdown-menu:focus {

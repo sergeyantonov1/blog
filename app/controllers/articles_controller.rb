@@ -29,6 +29,6 @@ class ArticlesController < ApplicationController
   end
 
   def fetch_articles
-    Article.all
+    Articles::FilteredQuery.new(Article.all, params).all
   end
 end

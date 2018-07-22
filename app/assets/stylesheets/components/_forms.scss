@@ -28,8 +28,18 @@
   .sign-up-button input {
     margin-top: 10px;
   }
+}
 
-  .error {
-    color: red;
+.error {
+  color: red;
+}
+
+.article-form {
+  @include sans-serif-font;
+  width: 70%;
+  margin: auto;
+
+  input[type="submit"] {
+    width: 100%;
   }
 }

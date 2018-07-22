@@ -6,6 +6,16 @@ header.masthead.show {
   background-image: image_url('post-bg.jpg');
 }
 
+header.masthead.sign-in {
+  background-image: image_url('sign-in-bg.jpg');
+  margin: 0;
+}
+
+header.masthead.sign-up {
+  background-image: image_url('sign-up-bg.jpg');
+  margin: 0;
+}
+
 header.masthead {
   margin-bottom: 50px;
   background: no-repeat center center;

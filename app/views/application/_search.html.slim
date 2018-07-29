@@ -4,5 +4,6 @@
         .col-md-10
           = text_field_tag :query, params[:query], class: "form-control",
             autofocus: true, placeholder: "Search by title or text of article..."
+          = hidden_field_tag :author, params[:author]
         .col-md-2
           = submit_tag "Search", class: "btn btn-primary"

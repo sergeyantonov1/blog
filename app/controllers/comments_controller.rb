@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   expose :comment, attributes: :comment_params
   expose :article
+  expose_decorated :comments, -> {article.comments}
 
   before_action :authorize_resource, only: %i[create destroy]
 
@@ -8,7 +9,11 @@ class CommentsController < ApplicationController
     comment.user = current_user
     comment.article = article
 
-    comment.save
+    if comment.save
+      flash[:notice] = "Comment was successfully created."
+    else
+      flash[:alert] = "Comment could not be created."
+    end
 
     redirect_to article
   end

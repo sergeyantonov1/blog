@@ -26,7 +26,7 @@ describe ArticlesController do
   end
 
   describe "PATCH #update" do
-    let(:article) { create :article }
+    let(:article) { create :article, user: user }
     let(:article_params) do
       {
         title: "New title",
@@ -34,12 +34,7 @@ describe ArticlesController do
       }
     end
 
-    let(:params) do
-      {
-        id: article.id,
-        article: article_params
-      }
-    end
+    let(:params) { { id: article.id, article: article_params } }
 
     it "updates article" do
       patch :update, params: params
@@ -50,7 +45,7 @@ describe ArticlesController do
   end
 
   describe "DELETE #destroy" do
-    let!(:article) { create :article }
+    let!(:article) { create :article, user: user }
     let(:params) { { id: article.id } }
 
     it "deletes article" do

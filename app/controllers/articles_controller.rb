@@ -42,8 +42,4 @@ class ArticlesController < ApplicationController
   def fetch_comments
     article.comments.includes(:user)
   end
-
-  def fetch_comments
-    article.comments.includes(:user)
-  end
 end

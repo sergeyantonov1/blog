@@ -8,7 +8,11 @@ class CommentsController < ApplicationController
     comment.user = current_user
     comment.article = article
 
-    comment.save
+    if comment.save
+      flash[:notice] = "Comment was successfully created."
+    else
+      flash[:alert] = "Comment could not be created."
+    end
 
     redirect_to article
   end

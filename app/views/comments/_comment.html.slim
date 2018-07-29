@@ -1,0 +1,13 @@
+.comment
+  .comment-info
+    .author
+      = comment.user_full_name
+    .created_at
+      = comment.created_at_h
+  br
+  .body
+    = comment.text
+  - if policy(comment).destroy?
+    .actions
+      = link_to "Destroy", article_comment_path(article, comment), method: :delete
+  br

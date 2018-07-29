@@ -1,0 +1,6 @@
+.comment-form
+  = simple_form_for [article, Comment.new] do |f|
+    .form-group
+      = f.input :text, input_html: { class: "form-control", rows: 2 }
+    .form-group
+      = f.button :submit, class: "btn btn-primary"

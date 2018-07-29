@@ -1,4 +1,3 @@
-// Styling for the post page
 .post-preview {
   > a {
     color: $gray-900;
@@ -38,5 +37,13 @@
         font-size: 36px;
       }
     }
+  }
+}
+
+.article-actions {
+  float: right;
+
+  .edit-button {
+    margin-right: 20px;
   }
 }

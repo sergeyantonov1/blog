@@ -12,6 +12,11 @@ article
     .row
       .col-lg-8.col-md-10.mx-auto
         = raw article.text
+      .col-lg-8.col-md-10.mx-auto
+        .article-actions
+          - if policy(article).update?
+            = link_to "Edit", edit_article_path(article), class: "btn btn-primary edit-button"
+            = link_to "Destroy", article_path(article), method: :delete, class: "btn btn-primary"
 hr
 .container
   .comments

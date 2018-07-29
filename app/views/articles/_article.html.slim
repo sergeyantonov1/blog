@@ -4,7 +4,9 @@
     h3.post-subtitle = article.title
   p.post-meta
     | Posted by
-    a href="#"
-      |  Start Bootstrap
-    |  on September 24, 2018
+    '
+    = article.user_full_name
+    |  on
+    '
+    = article.created_at_h
 hr

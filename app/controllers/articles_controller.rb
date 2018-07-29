@@ -3,6 +3,8 @@ class ArticlesController < ApplicationController
   expose_decorated :articles, -> { fetch_articles }
   expose_decorated :comments, -> { fetch_comments }
 
+  before_action :authorize_resource, only: %i[create update destroy]
+
   def create
     article.user = current_user
 
@@ -25,12 +27,16 @@ class ArticlesController < ApplicationController
 
   private
 
+  def authorize_resource
+    authorize article
+  end
+
   def article_params
     params.require(:article).permit(:title, :text)
   end
 
   def fetch_articles
-    Articles::FilteredQuery.new(Article.all, params).all
+    Articles::FilteredQuery.new(Article.includes(:user), params).all
   end
 
   def fetch_comments

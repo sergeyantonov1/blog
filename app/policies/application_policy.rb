@@ -6,9 +6,7 @@ class ApplicationPolicy
     @record = record
   end
 
-  protected
-
   def owner?
-    record.user == user
+    user.present? && record.user == user
   end
 end

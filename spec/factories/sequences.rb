@@ -1,5 +1,5 @@
 FactoryGirl.define do
   sequence(:email) { Faker::Internet.email }
-  sequence(:title) { |n| "#{Faker::Lorem.words} #{n}" }
-  sequence(:text) { Faker::Lorem.paragraph }
+  sequence(:title) { Faker::Lorem.sentence }
+  sequence(:text) { Faker::Lorem.paragraph(30) }
 end

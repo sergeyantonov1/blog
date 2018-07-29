@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :comment do
-    references ""
-    references ""
-    text "MyText"
+    user
+    article
+    text
   end
 end

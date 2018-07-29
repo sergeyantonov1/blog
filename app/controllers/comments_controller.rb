@@ -14,9 +14,9 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-   comment.destroy
+    comment.destroy
 
-   redirect_to article
+    redirect_to article
   end
 
   private

@@ -4,7 +4,6 @@ feature "Create comment" do
   include_context "current user signed in"
 
   let!(:article) { create :article }
-  let!(:user) { create :user }
   let(:attributes) { attributes_for(:comment).slice(:text) }
 
   before do

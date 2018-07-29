@@ -23,7 +23,7 @@ feature "Destroy article" do
     scenario "deletes article" do
       find_destroy_article_link
 
-      expect(page).to have_content ("Article was successfully destroyed")
+      expect(page).to have_content("Article was successfully destroyed")
     end
   end
 

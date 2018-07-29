@@ -38,7 +38,7 @@ feature "Update article" do
 
       click_button "Update Article"
 
-      expect(page).to have_content ("Article could not be updated")
+      expect(page).to have_content("Article could not be updated")
     end
   end
 

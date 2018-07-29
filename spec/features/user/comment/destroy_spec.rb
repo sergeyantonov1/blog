@@ -5,8 +5,8 @@ feature "User destroy comment" do
 
   let!(:article) { create :article }
   let!(:comment) { create :comment, article: article, user: current_user }
-  let!(:another_article) { create :article }
-  let!(:another_comment) { create :comment, article: another_article }
+  let!(:another_article) { create :article, comments: [another_comment] }
+  let(:another_comment) { create :comment }
 
   scenario "not his comment" do
     visit article_path(another_article)

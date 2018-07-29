@@ -13,3 +13,15 @@ article
       .col-lg-8.col-md-10.mx-auto
         = raw article.text
 hr
+.container
+  .comments
+    .row
+      .col-lg-8.col-md-10.mx-auto
+        p Comments
+        = render "comments/comments", commtens: comments
+        - if policy(:comment).create?
+          = render "comments/form", article: article
+        - else
+          .sign-in-link
+            = link_to "Sign in", new_user_session_path
+            '  to leave a comment

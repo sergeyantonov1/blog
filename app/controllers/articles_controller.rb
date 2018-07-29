@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   expose_decorated :article
   expose_decorated :articles, -> { fetch_articles }
+  expose_decorated :comments, -> { fetch_comments }
 
   def create
     article.user = current_user
@@ -30,5 +31,9 @@ class ArticlesController < ApplicationController
 
   def fetch_articles
     Articles::FilteredQuery.new(Article.all, params).all
+  end
+
+  def fetch_comments
+    article.comments.includes(:user)
   end
 end

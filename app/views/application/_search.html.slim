@@ -1,0 +1,8 @@
+.search-form
+    = form_tag articles_path, method: :get do
+      .row
+        .col-md-10
+          = text_field_tag :query, params[:query], class: "form-control",
+            autofocus: true, placeholder: "Search by title or text of article..."
+        .col-md-2
+          = submit_tag "Search", class: "btn btn-primary"

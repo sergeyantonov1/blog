@@ -2,16 +2,22 @@ module Articles
   class FilteredQuery < BaseQuery
     DEFAULT_ARTICLES_ON_PAGE = 10
 
+    FILTER_OPTIONS = %i[author_articles query per].freeze
+
     def all
-      author_articles
+      FILTER_OPTIONS.reduce(relation) do |result, key|
+        params[key].blank? ? result : send("apply_#{key}", relation)
+      end
     end
 
     private
 
-    def author_articles
-      return relation unless params[:author]
+    def apply_author_articles(relation)
+      relation.where(user_id: params[:author])
+    end
 
-      @relation = relation.where(user_id: params[:author])
+    def apply_query(relation)
+      relation.search_by_title_or_text(params[:query])
     end
   end
 end

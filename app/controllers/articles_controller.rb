@@ -36,10 +36,10 @@ class ArticlesController < ApplicationController
   end
 
   def fetch_articles
-    Articles::FilteredQuery.new(Article.includes(:user), params).all
+    Articles::FilteredQuery.new(Article.includes(:user), params).all.page(params[:page])
   end
 
   def fetch_comments
-    article.comments.includes(:user)
+    article.comments.includes(:user).page(params[:page])
   end
 end

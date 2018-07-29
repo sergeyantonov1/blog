@@ -11,9 +11,10 @@ header.masthead.index
 .container
   .row
     .col-lg-8.col-md-10.mx-auto
+      = render "application/search"
       - articles.each do |article|
         = render "article", article: article
       .clearfix
-        a.btn.btn-primary.float-right[href="#"]
-          | Older Posts →
+        .float-right
+          = paginate articles
 hr

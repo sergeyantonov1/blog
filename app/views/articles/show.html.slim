@@ -24,6 +24,7 @@ hr
       .col-lg-8.col-md-10.mx-auto
         p Comments
         = render "comments/comments", commtens: comments
+        = paginate comments
         - if policy(:comment).create?
           = render "comments/form", article: article
         - else

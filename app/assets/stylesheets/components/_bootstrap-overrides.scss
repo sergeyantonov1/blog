@@ -25,3 +25,17 @@
   font-size: 16px;
   padding: 25px 35px;
 }
+
+.pagination {
+  .btn {
+    border-radius: 0;
+  }
+
+  .current a {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    background-color: #00657b;
+    border-color: #00657b;
+  }
+}

@@ -22,6 +22,6 @@ feature "Update article" do
   scenario "User updates not his article" do
     visit edit_article_path(another_article)
 
-    expect(page).not_to have_button "Update Article"
+    expect(page).to have_no_button "Update Article"
   end
 end

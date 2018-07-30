@@ -7,7 +7,7 @@ feature "Create article" do
 
   before { visit articles_path }
 
-  scenario "User creates Article" do
+  scenario "User creates article" do
     click_link "New publication"
 
     fill_form(:article, article_attributes)

@@ -12,13 +12,13 @@ feature "Destroy article" do
     click_on "Destroy"
 
     expect(page).to have_content "Article was successfully destroyed."
-    expect(page).not_to have_content "First article title"
-    expect(page).not_to have_content "First article text"
+    expect(page).to have_no_content "First article title"
+    expect(page).to have_no_content "First article text"
   end
 
   scenario "User destroys not his article" do
     visit article_path(another_article)
 
-    expect(page).not_to have_link("Delete")
+    expect(page).to have_no_link("Delete")
   end
 end

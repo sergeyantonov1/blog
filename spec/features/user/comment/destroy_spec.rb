@@ -8,8 +8,6 @@ feature "Destroy comment" do
   let!(:comment) { create :comment, article: article, user: current_user }
 
   scenario "User destroy his comment" do
-    create :comment, article: article, user: current_user
-
     visit article_path(article)
 
     click_link("Destroy")

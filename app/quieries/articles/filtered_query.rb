@@ -2,11 +2,15 @@ module Articles
   class FilteredQuery < BaseQuery
     DEFAULT_ARTICLES_ON_PAGE = 10
 
-    FILTER_OPTIONS = %i[query author per].freeze
+    FILTER_OPTIONS = %i[author query per].freeze
 
     def all
       FILTER_OPTIONS.reduce(relation) do |result, key|
-        params[key].blank? ? result : send("apply_#{key}", relation)
+        if params[key].blank?
+          result
+        else
+          send "apply_#{key}", relation
+        end
       end
     end
 

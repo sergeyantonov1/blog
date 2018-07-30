@@ -3,6 +3,10 @@ class ArticlePolicy < ApplicationPolicy
     user.present?
   end
 
+  def edit?
+    owner?
+  end
+
   def update?
     owner?
   end

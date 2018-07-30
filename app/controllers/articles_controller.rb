@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   expose_decorated :articles, :paginate_articles
   expose_decorated :comments, :paginate_comments
 
-  before_action :authorize_resource, only: %i[create update destroy]
+  before_action :authorize_resource, only: %i[create edit update destroy]
 
   def create
     article.user = current_user

@@ -1,26 +1,25 @@
 require "rails_helper"
 
-feature "User destroy comment" do
+feature "Destroy comment" do
   include_context "current user signed in"
 
-  let!(:article) { create :article }
+  let(:article) { create :article }
+  let(:another_article) { create :article }
   let!(:comment) { create :comment, article: article, user: current_user }
-  let!(:another_article) { create :article, comments: [another_comment] }
-  let(:another_comment) { create :comment }
 
-  scenario "not his comment" do
-    visit article_path(another_article)
-
-    expect(page).not_to have_link("Destroy")
-  end
-
-  scenario "his comment" do
+  scenario "User destroy his comment" do
     visit article_path(article)
 
-    expect(page).to have_link("Destroy")
-
-    click_link "Destroy"
+    click_link("Destroy")
 
     expect(page).not_to have_content(comment.text)
+  end
+
+  scenario "User destroys not his comment" do
+    create :comment, article: another_article
+
+    visit article_path(another_article)
+
+    expect(page).to have_no_link("Destroy")
   end
 end

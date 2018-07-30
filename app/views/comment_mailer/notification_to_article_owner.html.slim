@@ -1,0 +1,12 @@
+.row
+  container
+    h1
+      | Hi,
+      '
+      = @article.user_full_name
+
+    p
+      = "#{@comment.user_full_name} commented on your article: #{@article.title}!"
+      '  See the comment
+      '
+      = link_to "here", article_url(@article)

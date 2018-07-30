@@ -14,4 +14,5 @@
 #= require jqBootstrapValidation
 #= require_tree ../templates
 #= require ckeditor/init
+#= require fragments
 #= require_tree .

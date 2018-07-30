@@ -12,7 +12,7 @@ describe Articles::FilteredQuery do
   let(:result) { subject.all }
 
   describe "#filter" do
-    it "returns list of all articles" do
+    it "return list of all articles" do
       expect(result).to match_array([article_1, article_2, article_3, article_4])
     end
 
@@ -22,14 +22,6 @@ describe Articles::FilteredQuery do
       it "returns list of filtered articles" do
         expect(result).to match_array([article_1])
       end
-
-      context "but there is no match" do
-        let(:params) { { query: "Title5" } }
-
-        it "returns an empty array" do
-          expect(result).to be_empty
-        end
-      end
     end
 
     context "when filtering by text" do
@@ -38,13 +30,13 @@ describe Articles::FilteredQuery do
       it "returns list of filtered articles" do
         expect(result).to match_array([article_3])
       end
+    end
 
-      context "but there is no match" do
-        let(:params) { { query: "Text0" } }
+    context "when there are no matches" do
+      let(:params) { { query: "Title5" } }
 
-        it "returns an empty array" do
-          expect(result).to be_empty
-        end
+      it "returns an empty array" do
+        expect(result).to be_empty
       end
     end
   end

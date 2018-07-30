@@ -25,9 +25,3 @@ hr
         p Comments
         = render "comments/comments", commtens: comments
         = paginate comments
-        - if policy(:comment).create?
-          = render "comments/form", article: article
-        - else
-          .sign-in-link
-            = link_to "Sign in", new_user_session_path
-            '  to leave a comment

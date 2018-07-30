@@ -1,20 +1,16 @@
 class CommentsController < ApplicationController
-  expose :comment, attributes: :comment_params
   expose :article
+  expose :comment, attributes: :comment_params
+  expose_decorated :comments, :paginate_comments
 
   before_action :authorize_resource, only: %i[create destroy]
 
   def create
-    comment.user = current_user
-    comment.article = article
+    result = CommentArticle.call(article: article, author: current_user, comment: comment)
 
-    if comment.save
-      flash[:notice] = "Comment was successfully created."
-    else
-      flash[:alert] = "Comment could not be created."
-    end
+    self.comment = Comment.new if result.success?
 
-    redirect_to article
+    render "fragments", layout: false
   end
 
   def destroy
@@ -24,6 +20,14 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  def fetch_comments
+    article.comments.includes(:user).order(created_at: :desc)
+  end
+
+  def paginate_comments
+    fetch_comments.page(params[:page])
+  end
 
   def comment_params
     params.require(:comment).permit(:text)

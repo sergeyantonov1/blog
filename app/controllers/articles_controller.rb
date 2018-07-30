@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
   end
 
   def fetch_comments
-    article.comments.includes(:user)
+    article.comments.includes(:user).order(created_at: :desc)
   end
 
   def paginate_comments

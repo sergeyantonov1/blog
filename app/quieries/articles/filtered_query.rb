@@ -9,7 +9,7 @@ module Articles
         if params[key].blank?
           result
         else
-          send "apply_#{key}", relation
+          send "apply_#{key}", result
         end
       end
     end

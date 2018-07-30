@@ -10,6 +10,6 @@ class Article < ApplicationRecord
   validates :title, :text, presence: true
 
   pg_search_scope :search_by_title_or_text,
-    against: %i[title text],
+    against: { title: "A", text: "B" },
     using: { tsearch: { prefix: true } }
 end

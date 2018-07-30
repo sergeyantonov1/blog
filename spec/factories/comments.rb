@@ -2,6 +2,6 @@ FactoryGirl.define do
   factory :comment do
     user
     article
-    text Faker::Lorem.paragraph(3)
+    text { Faker::VForVendetta.quote }
   end
 end

@@ -1,3 +1,20 @@
-.notice {
-  @include callout($primary-color);
+.messages {
+  z-index: 2000;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+
+  .alert {
+    border-radius: 0.10rem;
+  }
+  .alert-info {
+    opacity: 0.7;
+    color: #000;
+    background-color: #ffffff;
+    border-color: #ffffff;
+  }
 }

@@ -5,4 +5,6 @@
     .sign-in-link
       = link_to "Sign in", new_user_session_path
       '  to leave a comment
+    br
+  h5 Comments
   = render partial: "comments/comment", collection: comments

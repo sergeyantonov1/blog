@@ -3,8 +3,20 @@ require "rails_helper"
 feature "Destroy article" do
   include_context "current user signed in"
 
-  let!(:article) { create :article, title: "First article title", text: "First article text", user: current_user }
-  let!(:another_article) { create :article, title: "Second article title", text: "Second article text" }
+  let!(:article) do
+    create :article,
+      title: "First article title",
+      subtitle: "First article subtitle",
+      text: "First article text",
+      user: current_user
+  end
+
+  let!(:another_article) do
+    create :article,
+      title: "Second article title",
+      subtitle: "Second article subtitle",
+      text: "Second article text"
+  end
 
   scenario "User destroys his article" do
     visit article_path(article)
@@ -13,6 +25,7 @@ feature "Destroy article" do
 
     expect(page).to have_content "Article was successfully destroyed."
     expect(page).to have_no_content "First article title"
+    expect(page).to have_no_content "First article subtitle"
     expect(page).to have_no_content "First article text"
   end
 

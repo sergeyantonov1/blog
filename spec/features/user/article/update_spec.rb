@@ -5,7 +5,7 @@ feature "Update article" do
 
   let(:article) { create :article, user: current_user }
   let(:another_article) { create :article }
-  let(:article_attributes) { attributes_for(:article).slice(:title, :text) }
+  let(:article_attributes) { attributes_for(:article).slice(:title, :subtitle, :text) }
 
   scenario "User updates his article" do
     visit edit_article_path(article)
@@ -16,6 +16,7 @@ feature "Update article" do
 
     expect(page).to have_content("Article was successfully updated.")
     expect(page).to have_content(article_attributes[:title])
+    expect(page).to have_content(article_attributes[:subtitle])
     expect(page).to have_content(article_attributes[:text])
   end
 

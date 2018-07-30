@@ -1,5 +1,5 @@
 class ArticleDecorator < ApplicationDecorator
-  delegate :title, :text, :user
+  delegate :title, :subtitle, :text, :user
   delegate :full_name, to: :user, prefix: true
 
   def created_at_h

@@ -2,7 +2,7 @@ module Articles
   class FilteredQuery < BaseQuery
     DEFAULT_ARTICLES_ON_PAGE = 10
 
-    FILTER_OPTIONS = %i[author query per].freeze
+    FILTER_OPTIONS = %i[author query].freeze
 
     def all
       FILTER_OPTIONS.reduce(relation) do |result, key|

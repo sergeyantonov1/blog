@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   expose_decorated :articles, :paginate_articles
   expose_decorated :comments, :paginate_comments
 
+  before_action :authenticate_user!, only: %i[new]
   before_action :authorize_resource, only: %i[create edit update destroy]
 
   def create
@@ -32,7 +33,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :text)
+    params.require(:article).permit(:title, :subtitle, :text)
   end
 
   def fetch_articles

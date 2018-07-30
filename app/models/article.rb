@@ -3,13 +3,15 @@ class Article < ApplicationRecord
 
   paginates_per 10
 
+  default_scope { order(created_at: :desc) }
+
   has_many :comments
 
-  belongs_to :user, inverse_of: :articles
+  belongs_to :user
 
-  validates :title, :text, presence: true
+  validates :title, :subtitle, :text, presence: true
 
   pg_search_scope :search_by_title_or_text,
-    against: { title: "A", text: "B" },
+    against: { title: "A", subtitle: "B", text: "C" },
     using: { tsearch: { prefix: true } }
 end

@@ -30,8 +30,6 @@ gem "decent_decoration"
 gem "decent_exposure"
 gem "devise"
 gem "draper"
-gem "factory_girl_rails"
-gem "faker"
 gem "flamegraph"
 gem "google-analytics-rails"
 gem "health_check"
@@ -51,6 +49,11 @@ gem "stackprof"
 
 group :staging, :production do
   gem "newrelic_rpm"
+end
+
+group :staging, :development, :test do
+  gem "factory_girl_rails"
+  gem "faker"
 end
 
 group :test do

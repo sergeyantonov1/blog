@@ -3,8 +3,6 @@ class Article < ApplicationRecord
 
   paginates_per 10
 
-  default_scope { order(created_at: :desc) }
-
   has_many :comments
 
   belongs_to :user

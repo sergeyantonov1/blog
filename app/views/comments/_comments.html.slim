@@ -3,8 +3,11 @@
     = render "comments/form", article: article
   - else
     .sign-in-link
-      = link_to "Sign in", new_user_session_path
+      = link_to t("common.sign_in"), new_user_session_path
       '  to leave a comment
     br
   h5 Comments
-  = render partial: "comments/comment", collection: comments
+  - if comments.empty?
+    p No one left a comment
+  - else
+    = render partial: "comments/comment", collection: comments

@@ -5,9 +5,9 @@
 Blog about IT
 
 ## Dependencies
-PostgreSQL 9.1 and later
-Ruby 2.4.2
-Rails 5.1.2
+* PostgreSQL 9.1 and later
+* Ruby 2.4.2
+* Rails 5.1.2
 
 ## Quick Start
 

@@ -1,33 +1,40 @@
-.row
-  .columns
-    h2 = title("Edit #{current_user.full_name}")
+header.masthead.sign-up
+  .overlay
+  .container
+    .row
+      .col-lg-8.col-md-10.mx-auto
+        .sign_form
+          = simple_form_for resource,
+              as: resource_name,
+              url: registration_path(resource_name),
+              html: { class: "form-horizontal" } do |f|
 
-.row
-  .medium-5.columns
-    = simple_form_for resource,
-        as: resource_name,
-        url: registration_path(resource_name),
-        html: { method: :put } do |f|
+            .form-header Edit profile
 
-      .form-inputs
-        = f.input :full_name, required: true, autofocus: true
-        = f.input :email, required: true
-        = f.input :password,
-            autocomplete: "off",
-            required: false
-        = f.input :password_confirmation,
-            required: false
+            .form-inputs
+              .form-group
+                = f.input :full_name, required: true, autofocus: true,
+                  input_html: { class: "form-control" }
+              .form-group
+                = f.input :email, required: true,
+                  input_html: { class: "form-control" }
+              .form-group
+                = f.input :password, required: false,
+                  input_html: { class: "form-control", autocomplete: "off" }
+              .form-group
+                = f.input :password_confirmation, required: false,
+                  input_html: { class: "form-control" }
 
-      .form-actions
-        = f.button :submit, "Update"
+            .form-actions.sign-up-button
+              = f.button :submit, "Update", class: "btn btn-primary"
 
-  .medium-5.medium-offset-1.columns.end
-    h6
-      b Cancel my account
-    p
-      | Unhappy?
-      '
-      = link_to "Cancel my account.",
-          registration_path(resource_name),
-          data: { confirm: "Are you sure?" },
-          method: :delete
+            .end-account
+              h6
+                b Cancel my account
+              p
+                | Unhappy?
+                '
+                = link_to "Cancel my account.",
+                    registration_path(resource_name),
+                    data: { confirm: "Are you sure?" },
+                    method: :delete

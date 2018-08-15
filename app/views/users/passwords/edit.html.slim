@@ -1,23 +1,28 @@
-.row
-  .columns
-    h2 = title("Change password")
+header.masthead.sign-up
+  .overlay
+  .container
+    .row
+      .col-lg-8.col-md-10.mx-auto
+        .sign_form
+          = simple_form_for resource,
+              as: resource_name,
+              url: password_path(resource_name),
+              html: { method: :put, class: "form-horizontal" } do |f|
 
-.row
-  .medium-5.columns
-    = simple_form_for resource,
-        as: resource_name,
-        url: password_path(resource_name),
-        html: { method: :put } do |f|
+            .form-header Reset password
 
-      = f.input :reset_password_token, as: :hidden
-      = f.full_error :reset_password_token
+            = f.input :reset_password_token, as: :hidden
+            = f.full_error :reset_password_token
 
-      .form-inputs
-        = f.input :password, required: true
-        = f.input :password_confirmation, required: true
+            .form-inputs
+              .form-group
+                = f.input :password_confirmation, required: true, autofocus: true,
+                  input_html: { class: "form-control" }
+              .form-group
+                = f.input :password, required: true, autofocus: true,
+                  input_html: { class: "form-control" }
+            .form-actions
+              = f.button :submit, "Update password", class: "btn btn-primary"
 
-      .form-actions
-        = f.button :submit, "Update password"
-
-  .medium-5.medium-offset-1.columns.end
-    = render "users/shared/links"
+            .shared-links
+              = render "users/shared/links"

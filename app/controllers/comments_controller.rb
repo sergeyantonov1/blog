@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   expose :article
-  expose :comment, attributes: :comment_params
+  expose :comment
   expose_decorated :comments, :paginate_comments
 
   before_action :authorize_resource, only: %i[create destroy]

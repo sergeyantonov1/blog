@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
   expose_decorated :article
   expose_decorated :articles, :paginate_articles
   expose_decorated :comments, :paginate_comments
+  expose :comment, -> { Comment.new }
 
   before_action :authenticate_user!, only: %i[new]
   before_action :authorize_resource!, only: %i[create edit update destroy]

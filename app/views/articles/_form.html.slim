@@ -1,5 +1,5 @@
 .article-form
-  = simple_form_for article, html_input: { class: "form-horizontal" } do |f|
+  = simple_form_for article.object, html_input: { class: "form-horizontal" } do |f|
     .form-group
       = f.input :title, autofocus: true, input_html: { class: "form-control" }
     .form-group

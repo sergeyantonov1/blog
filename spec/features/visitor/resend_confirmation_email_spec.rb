@@ -7,7 +7,7 @@ feature "Resend Confirmation Email" do
     visit new_user_confirmation_path
 
     fill_in "Enter your email address", with: user.email
-    click_button "Resend confirmation instructions"
+    click_button "Resend"
 
     open_email(user.email)
 

@@ -1,0 +1,4 @@
+en:
+  comment_mailer:
+    notification_to_article_owner:
+      subject: New comment!

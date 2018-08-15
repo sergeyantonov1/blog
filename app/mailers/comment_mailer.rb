@@ -4,8 +4,8 @@ class CommentMailer < ApplicationMailer
   def notification_to_article_owner(comment)
     @article = comment.article.decorate
     @comment = comment.decorate
-    receiver = @article.user.email
+    receiver = @article.object.user.email
 
-    mail to: receiver, subject: "New comment!"
+    mail to: receiver, subject: default_i18n_subject
   end
 end

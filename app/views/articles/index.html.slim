@@ -12,8 +12,12 @@ header.masthead.index
   .row
     .col-lg-8.col-md-10.mx-auto
       = render "application/search"
-      - articles.each do |article|
-        = render "article", article: article
+      - if articles.empty?
+        .no-articles
+          span No articles yet
+      - else
+        - articles.each do |article|
+          = render "article", article: article
       .clearfix
         .float-right
           = paginate articles

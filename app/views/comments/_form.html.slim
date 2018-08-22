@@ -1,5 +1,5 @@
 .comment-form
-  = simple_form_for [article, Comment.new], data: { remote: true, behavior: "fragments" } do |f|
+  = simple_form_for [article, comment], data: { remote: true, behavior: "fragments" } do |f|
     .form-group
       = f.input :text, input_html: { class: "form-control", rows: 2 }
     .form-group

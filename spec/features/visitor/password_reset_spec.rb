@@ -14,7 +14,7 @@ feature "Password Reset" do
     visit new_user_password_path
 
     fill_in "Enter your email address", with: user.email
-    click_button "Send me reset password instructions"
+    click_button "Send instructions"
 
     open_email(user.email)
 

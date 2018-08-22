@@ -1,8 +1,8 @@
 class CommentDecorator < ApplicationDecorator
-  delegate :text, :created_at_h, :user
+  delegate :text, :formatted_created, :user
   delegate :full_name, to: :user, prefix: true
 
-  def created_at_h
-    object.created_at.strftime("%D %R")
+  def formatted_created(format = "%D %R")
+    object.created_at.strftime(format)
   end
 end

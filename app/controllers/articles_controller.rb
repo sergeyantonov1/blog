@@ -43,7 +43,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :subtitle, :text)
+    params.require(:article).permit(:title, :subtitle, :text, :all_tags)
   end
 
   def fetch_articles

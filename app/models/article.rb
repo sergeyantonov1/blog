@@ -4,6 +4,8 @@ class Article < ApplicationRecord
   paginates_per 10
 
   has_many :comments
+  has_many :tagging
+  has_many :tags, through: :tagging
 
   belongs_to :user
 
@@ -12,4 +14,18 @@ class Article < ApplicationRecord
   pg_search_scope :search_by_title_or_text,
     against: { title: "A", subtitle: "B", text: "C" },
     using: { tsearch: { prefix: true } }
+
+  def all_tags=(titles)
+    self.tags = titles.split(",").map do |title|
+      Tag.where(title: title.strip).first_or_create!
+    end
+  end
+
+  def all_tags
+    self.tags.map(&:title).join(", ")
+  end
+
+  def self.tagged_with(title)
+    Tag.find_by_name!(name).articles
+  end
 end

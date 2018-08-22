@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180730200436) do
+ActiveRecord::Schema.define(version: 20180822182010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,18 @@ ActiveRecord::Schema.define(version: 20180730200436) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "taggings", force: :cascade do |t|
+    t.bigint "article_id", null: false
+    t.bigint "tag_id", null: false
+    t.index ["article_id"], name: "index_taggings_on_article_id"
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "title", null: false
+    t.index ["title"], name: "index_tags_on_title", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", limit: 255, default: "", null: false
     t.string "encrypted_password", limit: 255, default: "", null: false
@@ -70,4 +82,6 @@ ActiveRecord::Schema.define(version: 20180730200436) do
   end
 
   add_foreign_key "articles", "users"
+  add_foreign_key "taggings", "articles"
+  add_foreign_key "taggings", "tags"
 end

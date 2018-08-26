@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create destroy]
   end
 
+  resources :tags, except: %i[new create edit update destroy]
+
   root to: "articles#index"
 end

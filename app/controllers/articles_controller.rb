@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   expose_decorated :articles, :paginate_articles
   expose_decorated :comments, :paginate_comments
   expose :comment, -> { Comment.new }
+  expose :tags, -> { article.all_tags }
 
   before_action :authenticate_user!, only: %i[new]
   before_action :authorize_resource!, only: %i[create edit update destroy]
@@ -43,7 +44,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :subtitle, :text)
+    params.require(:article).permit(:title, :subtitle, :text, :all_tags)
   end
 
   def fetch_articles

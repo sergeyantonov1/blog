@@ -5,9 +5,11 @@
     .form-group
       = f.input :subtitle, input_html: { class: "form-control" }
     .form-group
-      = f.input :all_tags, input_html: { class: "form-control" }
-    .form-group
       = f.input :text, as: :ckeditor, input_html: { class: "form-control" }
+    .form-group
+      ul#tags.form-control
+        - tags.each do |tag|
+          li = tag
 
     .form-group
       = f.button :submit, class: "btn btn-primary"

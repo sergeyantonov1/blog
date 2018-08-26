@@ -20,7 +20,13 @@ html class="no-js" lang="en"
       type="text/css"
     }
 
-    = display_meta_tags site: "RailsBase", keywords: %w(title site)
+    link {
+      href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css"
+      rel="stylesheet"
+      type="text/css"
+    }
+
+    = display_meta_tags site: "IT blog", keywords: %w(title site)
     = csrf_meta_tags
 
     = stylesheet_link_tag :application

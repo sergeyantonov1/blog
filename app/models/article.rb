@@ -22,10 +22,6 @@ class Article < ApplicationRecord
   end
 
   def all_tags
-    self.tags.map(&:title).join(", ")
-  end
-
-  def self.tagged_with(title)
-    Tag.find_by_name!(name).articles
+    tags.map(&:title)
   end
 end

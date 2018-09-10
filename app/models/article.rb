@@ -20,8 +20,4 @@ class Article < ApplicationRecord
       Tag.where(title: title.strip).first_or_create!
     end
   end
-
-  def all_tags
-    tags.map(&:title)
-  end
 end

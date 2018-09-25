@@ -11,9 +11,7 @@ describe CommentArticle do
     it_behaves_like "success interactor"
 
     it "saves comment" do
-      interactor.run
-
-      expect { context }.to change { Comment.count }
+      expect { interactor.run }.to change { Comment.count }
       expect(context.comment.user).to eq comment.user
       expect(context.comment.article).to eq article
     end

@@ -8,7 +8,6 @@ class ArticleDecorator < ApplicationDecorator
 
   def with_tags
     object.tags.each do |tag|
-
        yield(tag.title)
     end
   end

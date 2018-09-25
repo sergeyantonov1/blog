@@ -6,6 +6,12 @@ class ArticleDecorator < ApplicationDecorator
     object.created_at.strftime(format)
   end
 
+  def with_tags
+    object.tags.each do |tag|
+      yield(tag.title)
+    end
+  end
+
   private
 
   def user

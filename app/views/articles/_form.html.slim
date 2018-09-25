@@ -1,5 +1,5 @@
 .article-form
-  = simple_form_for article.object, html_input: { class: "form-horizontal" } do |f|
+  = simple_form_for article.to_model, html_input: { class: "form-horizontal" } do |f|
     .form-group
       = f.input :title, autofocus: true, input_html: { class: "form-control" }
     .form-group
@@ -8,8 +8,8 @@
       = f.input :text, as: :ckeditor, input_html: { class: "form-control" }
     .form-group
       ul#tags.form-control
-        - tags.each do |tag|
-          li = tag
+        - article.with_tags do |title|
+          li = title
 
     .form-group
       = f.button :submit, class: "btn btn-primary"

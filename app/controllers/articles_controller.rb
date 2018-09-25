@@ -3,10 +3,9 @@ class ArticlesController < ApplicationController
   expose_decorated :articles, :paginate_articles
   expose_decorated :comments, :paginate_comments
   expose :comment, -> { Comment.new }
-  expose :tags, -> { article.all_tags }
 
-  before_action :authenticate_user!, only: %i[new]
-  before_action :authorize_resource!, only: %i[create edit update destroy]
+  before_action :authenticate_user!, only: %i[new create]
+  before_action :authorize_resource!, only: %i[edit update destroy]
 
   def index
   end
@@ -18,9 +17,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    article.user = current_user
-
-    article.save
+    self.article =
+      CreateArticle.call(params: article_params, author: current_user).article
 
     respond_with(article)
   end
@@ -44,7 +42,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :subtitle, :text, :all_tags)
+    params.require(:article).permit(:title, :subtitle, :text, :tags)
   end
 
   def fetch_articles

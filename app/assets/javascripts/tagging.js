@@ -15,7 +15,7 @@ if(document.getElementById("tags")){
 
   $(document).ready(function () {
     $("#tags").tagit({
-      fieldName: "article[all_tags]",
+      fieldName: "article[tags]",
       singleField: true,
       availableTags: availableTags,
       allowDuplicates: false,

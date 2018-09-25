@@ -14,14 +14,4 @@ class Article < ApplicationRecord
   pg_search_scope :search_by_title_or_text,
     against: { title: "A", subtitle: "B", text: "C" },
     using: { tsearch: { prefix: true } }
-
-  def all_tags=(titles)
-    self.tags = titles.split(",").map do |title|
-      Tag.where(title: title.strip).first_or_create!
-    end
-  end
-
-  def all_tags
-    tags.map(&:title)
-  end
 end

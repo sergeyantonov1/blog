@@ -1,29 +1,25 @@
-class CreateArticle
+class UpdateArticle
   include Interactor
 
-  delegate :params, :author, :article, to: :context
-
-  before do
-    context.article = Article.new(article_attributes)
-  end
+  delegate :params, :article, to: :context
 
   def call
-    save_article!
+    update_article!
   rescue ActiveRecord::ActiveRecordError => e
     context.fail!(message: e.message)
   end
 
   private
 
-  def save_article!
+  def update_article!
     ActiveRecord::Base.transaction do
-      create_tags!
+      update_tags!
 
-      article.save!
+      article.update!(article_attributes)
     end
   end
 
-  def create_tags!
+  def update_tags!
     return unless article_tags
 
     article.tags = article_tags.map do |tag|
@@ -36,6 +32,6 @@ class CreateArticle
   end
 
   def article_attributes
-    params.except(:tags).merge(user: author)
+    params.except(:tags)
   end
 end

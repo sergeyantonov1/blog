@@ -4,7 +4,6 @@ describe CreateArticle do
   let(:interactor) { described_class.new(params: article_params, author: author) }
   let(:context) { interactor.context }
 
-
   let(:author) { create :user }
 
   describe "#call" do

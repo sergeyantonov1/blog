@@ -24,7 +24,8 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    article.update(article_params)
+    self.article =
+      UpdateArticle.call(article: article, params: article_params).article
 
     respond_with(article)
   end

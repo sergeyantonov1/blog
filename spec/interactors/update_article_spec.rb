@@ -16,7 +16,7 @@ describe UpdateArticle do
           subtitle: "New subtitle",
           text: "New text",
           tags: tags
-         }
+        }
       end
 
       it_behaves_like "success interactor"

@@ -28,10 +28,10 @@ class UpdateArticle
   end
 
   def article_tags
-    params[:tags]&.split(",")
+    params[:tag_titles]&.split(" ")
   end
 
   def article_attributes
-    params.except(:tags)
+    params.except(:tag_titles)
   end
 end

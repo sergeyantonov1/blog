@@ -8,8 +8,8 @@ describe CreateArticle do
 
   describe "#call" do
     context "when valid params" do
-      let(:article_params) { attributes_for(:article).merge(tags: tags) }
-      let(:tags) { "flatstack, rails, ruby" }
+      let(:article_params) { attributes_for(:article).merge(tag_titles: tag_titles) }
+      let(:tag_titles) { "flatstack rails ruby" }
 
       it_behaves_like "success interactor"
 

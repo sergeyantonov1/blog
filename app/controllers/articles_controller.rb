@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   expose_decorated :articles, :paginate_articles
   expose_decorated :comments, :paginate_comments
   expose :comment, -> { Comment.new }
+  expose :possible_tags, -> { Tag.order(:title) }, decorate: TagSerializer
 
   before_action :authenticate_user!, only: %i[new create]
   before_action :authorize_resource!, only: %i[edit update destroy]
@@ -43,7 +44,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :subtitle, :text, :tags)
+    params.require(:article).permit(:title, :subtitle, :text, :tag_titles)
   end
 
   def fetch_articles

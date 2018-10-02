@@ -50,7 +50,6 @@ gem "rollbar"
 gem "seedbank"
 gem "selectize-rails"
 gem "stackprof"
-gem "tag-it-rails"
 
 group :staging, :production do
   gem "newrelic_rpm"

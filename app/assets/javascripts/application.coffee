@@ -4,11 +4,11 @@
 # It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 # the compiled file.
 #
-#= require jquery
+#= require jquery2
 #= require jquery_ujs
 #= require jquery-ui
-#= require tag-it
-#= require tagging
+#= require selectize
+#= require select_tags
 #= require popper
 #= require bootstrap
 #= require current_user

@@ -32,10 +32,10 @@ class CreateArticle
   end
 
   def article_tags
-    params[:tags]&.split(",")
+    params[:tag_titles]&.split(" ")
   end
 
   def article_attributes
-    params.except(:tags).merge(user: author)
+    params.except(:tag_titles).merge(user: author)
   end
 end

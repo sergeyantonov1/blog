@@ -25,6 +25,7 @@ gem "simple_form"
 gem "slim"
 
 # all other gems
+gem "active_model_serializers"
 gem "carrierwave"
 gem "ckeditor"
 gem "decent_decoration"
@@ -47,6 +48,7 @@ gem "rack-mini-profiler", require: false, git: "https://github.com/MiniProfiler/
 gem "responders"
 gem "rollbar"
 gem "seedbank"
+gem "selectize-rails"
 gem "stackprof"
 gem "tag-it-rails"
 

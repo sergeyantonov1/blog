@@ -39,6 +39,11 @@ GEM
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
     active_link_to (1.0.3)
       actionpack
+    active_model_serializers (0.10.7)
+      actionpack (>= 4.1, < 6)
+      activemodel (>= 4.1, < 6)
+      case_transform (>= 0.2)
+      jsonapi-renderer (>= 0.1.1.beta1, < 0.3)
     activejob (5.1.2)
       activesupport (= 5.1.2)
       globalid (>= 0.3.6)
@@ -91,6 +96,8 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    case_transform (0.2)
+      activesupport
     choice (0.2.0)
     ckeditor (4.2.4)
       cocaine
@@ -206,6 +213,7 @@ GEM
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
     json (2.0.3)
+    jsonapi-renderer (0.2.0)
     kaminari (1.0.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.0.1)
@@ -384,6 +392,7 @@ GEM
       rake (>= 0.9, < 13)
       sass (~> 3.5.5)
     seedbank (0.4.0)
+    selectize-rails (0.12.5)
     shellany (0.0.1)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
@@ -424,9 +433,6 @@ GEM
       sprockets (>= 3.0.0)
     stackprof (0.2.10)
     sysexits (1.2.0)
-    tag-it-rails (2.0.0)
-      jquery-ui-rails
-      railties
     temple (0.7.7)
     terminal-notifier-guard (1.7.0)
     terrapin (0.6.0)
@@ -462,6 +468,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_link_to
+  active_model_serializers
   autoprefixer-rails
   awesome_print
   bootstrap (~> 4.1.1)
@@ -525,6 +532,7 @@ DEPENDENCIES
   sass-rails (~> 5.0.0, >= 5.0.6)
   scss_lint
   seedbank
+  selectize-rails
   shoulda-matchers
   simple_form
   slim
@@ -534,7 +542,6 @@ DEPENDENCIES
   spring-commands-rspec
   spring-watcher-listen
   stackprof
-  tag-it-rails
   terminal-notifier-guard
   uglifier (>= 2.7.2)
   web-console

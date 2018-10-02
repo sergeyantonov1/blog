@@ -8,14 +8,14 @@ describe UpdateArticle do
 
   describe "#call" do
     context "when valid params" do
-      let(:tags) { "flatstack" }
+      let(:tag_titles) { "flatstack" }
 
       let(:article_params) do
         {
           title: "New title",
           subtitle: "New subtitle",
           text: "New text",
-          tags: tags
+          tag_titles: tag_titles
         }
       end
 

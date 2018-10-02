@@ -7,9 +7,7 @@
     .form-group
       = f.input :text, as: :ckeditor, input_html: { class: "form-control" }
     .form-group
-      ul#tags.form-control
-        - article.with_tags do |title|
-          li = title
+      = f.input :tag_titles, input_html: { data: { select_tags: possible_tags } }, required: true
 
     .form-group
       = f.button :submit, class: "btn btn-primary"

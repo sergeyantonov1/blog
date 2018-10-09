@@ -42,4 +42,6 @@ Rails.application.configure do
 
   # Run specs in order
   config.active_support.test_order = :sorted
+
+  Rails.application.routes.default_url_options[:host] = ENV.fetch("HOST")
 end

@@ -1,0 +1,4 @@
+en:
+  clients:
+    slack:
+      create_article: "%{user} created article %{article}! See more: %{url}"

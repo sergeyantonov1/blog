@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe CreateArticle do
+describe SaveArticle do
   let(:interactor) { described_class.new(params: article_params, author: author) }
   let(:context) { interactor.context }
 
@@ -13,11 +13,11 @@ describe CreateArticle do
 
       it_behaves_like "success interactor"
 
-      it "creates article" do
+      it "saves article" do
         expect { interactor.run }.to change { Article.count }
       end
 
-      it "creates article tags" do
+      it "saves article tags" do
         expect { interactor.run }.to change { Tag.count }.by(3)
       end
     end
@@ -27,11 +27,11 @@ describe CreateArticle do
 
       it_behaves_like "failure interactor"
 
-      it "does not create article" do
+      it "does not save article" do
         expect { interactor.run }.not_to change { Article.count }
       end
 
-      it "does not create article tags" do
+      it "does not save article tags" do
         expect { interactor.run }.not_to change { Tag.count }
       end
     end

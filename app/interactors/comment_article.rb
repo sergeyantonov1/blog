@@ -1,5 +1,5 @@
 class CommentArticle
   include Interactor::Organizer
 
-  organize CreateComment, SendCommentNotifications
+  organize CreateComment, SendCommentNotification
 end

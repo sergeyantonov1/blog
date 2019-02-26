@@ -1,4 +1,4 @@
-class SendCommentNotifications
+class SendCommentNotification
   include Interactor
 
   delegate :comment, :article, to: :context

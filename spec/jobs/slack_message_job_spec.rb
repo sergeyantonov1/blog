@@ -9,11 +9,11 @@ RSpec.describe SlackMessageJob do
 
     it "queues the job" do
       expect { job }
-      .to change(ActiveJob::Base.queue_adapter.enqueued_jobs, :size).by(1)
+        .to change(ActiveJob::Base.queue_adapter.enqueued_jobs, :size).by(1)
     end
 
-    it 'is in defaultd queue' do
-      expect(SlackMessageJob.queue_name).to eq("default")
+    it "is in defaultd queue" do
+      expect(described_class.queue_name).to eq("default")
     end
   end
 end
